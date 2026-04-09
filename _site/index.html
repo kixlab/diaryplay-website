@@ -4,189 +4,605 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Winder</title>
+    <title>DiaryPlay</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="shortcut icon" href="">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/assets/favicon/site.webmanifest">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <style>
+
+:root {
+  --accent: #ef6b5b;
+  --accent-soft: #fff4f1;
+  --card-bg: #fbf8f7;
+  --border-color: #e8dfdc;
+  --text-muted: #666;
+}
+
+.wrapper {
+  max-width: calc(1000px - (30px * 2));
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+hr {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  background-color: #ccc;
+  border: 0px;
+  height: 1px;
+}
+
+h4 {
+  color: #666;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  padding-top: 12px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 300;
+}
+
+ul {
+  margin-left: 24px;
+}
+
+li {
+  font-size: 18px;
+  color: #333;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.video-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.authors-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 16px;
+  text-align: center;
+}
+
+.author-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  margin: 0;
+}
+
+.author-container p {
+  margin-bottom: 0px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.author-image {
+  width: 84px;
+  height: 84px;
+  margin-bottom: 10px;
+}
+
+.author-image img {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-fallback {
+  display: flex;
+  width: 84px;
+  height: 84px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--accent-soft);
+  color: var(--accent) !important;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.center {
+  text-align: center;
+}
+
+.acknowledgement {
+  color: #999;
+  font-size: 12px;
+}
+
+.logos {
+  text-align: center;
+}
+
+.logos img {
+  padding: 0 4px 0 4px;
+  height: 16px;
+}
+
+.img-left {
+  display: inline-block;
+  width: 45%;
+}
+
+.text-right {
+  display: inline-block;
+  width: calc(54% - 16px);
+  margin-left: 16px;
+  vertical-align: middle;
+}
+
+.quote {
+  width: 70%;
+  margin-left: 15%
+}
+
+pre {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sys-img {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.lead {
+  max-width: 860px;
+  margin: 0 auto 24px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.lead-note {
+  margin-top: -12px;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.needs-check {
+  text-decoration-line: underline;
+  text-decoration-color: #2563eb;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 24px 0 28px;
+}
+
+.button-row.compact {
+  margin-top: 16px;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: #fff;
+  color: var(--accent) !important;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+.button-link:hover {
+  background: var(--accent-soft);
+}
+
+.button-link.secondary {
+  border-color: var(--border-color);
+  color: #333 !important;
+}
+
+.key-points,
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 32px;
+}
+
+.key-points {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card,
+.step-card {
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: var(--card-bg);
+}
+
+.info-card h3,
+.step-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-top: 0;
+}
+
+.info-card p,
+.step-card p {
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.step-index {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.figure-frame {
+  margin-bottom: 10px;
+}
+
+.figure-frame img {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+}
+
+.figure-caption {
+  margin-top: 0;
+  margin-bottom: 28px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  li {
+    font-size: 14px;
+  }
+
+  .author-container p {
+    font-size: 10px;
+  }
+
+  pre {
+    font-size: 10px;
+  }
+
+  .wrapper {
+    max-width: calc(100vw - 30px);
+  }
+
+  .author-container {
+    width: calc(50% - 10px);
+  }
+
+  .img-left {
+    display: block;
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .text-right {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .sys-img {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .lead-note {
+    font-size: 14px;
+  }
+
+  .button-row {
+    gap: 8px;
+  }
+
+  .button-link {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .key-points,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .author-image,
+  .author-image img,
+  .author-fallback {
+    width: 72px;
+    height: 72px;
+  }
+
+  .figure-caption {
+    font-size: 12px;
+  }
+
+  .logos img {
+    height: 14px;
+  }
+}</style>
   </head>
   <base target="_blank">
   <body>
     <div>
       <div class="wrapper">
-        <h1 style="font-family: 'Lato', sans-serif;">
-          
-            <img src="/assets/img/winder_logo.svg" width="40px" style="vertical-align:middle"/>
-          
-          <span style="vertical-align:middle; color: #7354f3;"/>Winder</span>
-        </h1>
-        <h4>Linking Speech and Visual Objects to Support Communication in Asynchronous Collaboration</h4>
-        <div class="authors-wrapper">
-        
-          <div class="author-container">
-            <div class="author-image">
-              <img src="/assets/img/taesoo.jpeg"/>
-            </div>
-            <p>
-            
-              <a href="https://taesookim.com">
-                Tae Soo Kim
-              </a>
-            
-            </p>
-            <p>
-              KAIST
-            </p>
-          </div>
-        
-          <div class="author-container">
-            <div class="author-image">
-              <img src="/assets/img/seungsu.jpg"/>
-            </div>
-            <p>
-            
-              Seungsu Kim
-            
-            </p>
-            <p>
-              KAIST
-            </p>
-          </div>
-        
-          <div class="author-container">
-            <div class="author-image">
-              <img src="/assets/img/yoonseo.png"/>
-            </div>
-            <p>
-            
-              <a href="https://yoonseochoi.com">
-                Yoonseo Choi
-              </a>
-            
-            </p>
-            <p>
-              KAIST
-            </p>
-          </div>
-        
-          <div class="author-container">
-            <div class="author-image">
-              <img src="/assets/img/juho.jpg"/>
-            </div>
-            <p>
-            
-              <a href="https://juhokim.com">
-                Juho Kim
-              </a>
-            
-            </p>
-            <p>
-              KAIST
-            </p>
-          </div>
-        
-        </div>
+        <h1 style="font-family: 'Lato', sans-serif;"><span style="vertical-align:middle; color: #ef6b5b;">DiaryPlay</span></h1>
+        <h4>AI-Assisted Creation of Interactive Story Vignettes for Everyday Storytelling</h4>
+        <div class="authors-wrapper"><div class="author-container"><div class="author-image"><a class="author-fallback" href="https://www.jiangnanxu.net/">JX</a></div><p><a href="https://www.jiangnanxu.net/">Jiangnan Xu</a></p><p>Tampere University / RIT</p></div><div class="author-container"><div class="author-image"><span class="author-fallback">HC</span></div><p>Haeseul Cha</p><p>KAIST</p></div><div class="author-container"><div class="author-image"><span class="author-fallback">GC</span></div><p>Gosu Choi</p><p>KAIST</p></div><div class="author-container"><div class="author-image"><span class="author-fallback">GL</span></div><p>Gyu-cheol Lee</p><p>KT</p></div><div class="author-container"><div class="author-image"><span class="author-fallback">YY</span></div><p>Yeo-Jin Yoon</p><p>KT</p></div><div class="author-container"><div class="author-image"><span class="author-fallback">ZL</span></div><p>Zucheul Lee</p><p>KT</p></div><div class="author-container"><div class="author-image"><span class="author-fallback">KP</span></div><p>Konstantinos Papangelis</p><p>Rochester Institute of Technology</p></div><div class="author-container"><div class="author-image"><a class="author-fallback" href="https://dhkim16.github.io/">DK</a></div><p><a href="https://dhkim16.github.io/">Dae Hyun Kim</a></p><p>Yonsei University / POSTECH</p></div><div class="author-container"><div class="author-image"><a class="author-fallback" href="https://juhokim.com">JK</a></div><p><a href="https://juhokim.com">Juho Kim</a></p><p>KAIST / SkillBench</p></div></div>
       </div>
     </div>
     <div class="wrapper">
       <hr/>
-      
-      <div class="video-wrapper">
-        <iframe src="https://drive.google.com/file/d/1Y4-UP6VrjVat2m0-qhxUcFvSX6xzATVt/preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <hr/>
-      
-      <h2 id="abstract">Abstract</h2>
+      <p class="lead">DiaryPlay assists everyday storytellers in creating interactive vignettes.</p>
+<p class="lead lead-note"><span class="needs-check">This page is arranged as clickable steps so the system can be checked sequentially.</span></p>
 
-<p>Team members commonly collaborate on visual documents remotely and asynchronously. Particularly, students are frequently restricted to this setting as they often do not share work schedules or physical workspaces. As communication in this setting has delays and limits the main modality to text, members exert more effort to reference document objects and understand others’ intentions. We propose <span style="color:#7354f3">Winder</span>, a Figma plugin that addresses these challenges through <em>linked tapes</em>—multimodal comments of clicks and voice. Bidirectional links between the clicked-on objects and voice recordings facilitate understanding tapes: selecting objects retrieves relevant recordings, and playing recordings highlights related objects. By periodically prompting users to produce tapes, <span style="color:#7354f3">Winder</span> preemptively obtains information to satisfy potential communication needs. Through a five-day study with eight teams of three, we evaluated the system’s impact on teams asynchronously designing graphical user interfaces. Our findings revealed that producing linked tapes could be as lightweight as face-to-face (F2F) interactions while transmitting intentions more precisely than text. Furthermore, with preempted tapes, teammates coordinated tasks and invited members to build on each others’ work.</p>
+<div class="button-row">
+  <a class="button-link" href="/papers/CHI2026-DiaryPlay-CameraReady.pdf"><span class="needs-check">Paper PDF</span></a>
+  <a class="button-link" href="https://doi.org/10.1145/3772318.3790572"><span class="needs-check">ACM DL</span></a>
+  <a class="button-link secondary" href="#system-overview" target="_self"><span class="needs-check">System Overview</span></a>
+  <a class="button-link secondary" href="#authoring-scenario" target="_self"><span class="needs-check">Authoring Steps</span></a>
+  <a class="button-link secondary" href="#viewing-scenario" target="_self"><span class="needs-check">Viewing Steps</span></a>
+  <a class="button-link secondary" href="#cd-module" target="_self"><span class="needs-check">CD Module</span></a>
+  <a class="button-link secondary" href="#paper-links" target="_self"><span class="needs-check">Citation</span></a>
+</div>
 
-<hr />
-
-<h2 id="system">System</h2>
-
-<p>In <span style="color:#7354f3">Winder</span>, users send <em>linked tapes</em>, which are recordings of their voice and clicks on objects on the UI design. The system generates bidirectional links between voice snippets and clicked-on objects to support navigation and understanding the receiver side.</p>
-
-<p>The main components of the system’s interface are (a) the top bar, (b) the list of linked tapes, and (c) the transcript space.</p>
-
-<p class="center sys-img"><img src="/assets/img/winder_main.png" alt="Winder next to the design for a screen of a mobile application" /></p>
-
-<h3 id="object-highlighting-on-voice-playback">Object Highlighting on Voice Playback</h3>
-
-<p>When the user plays a tape, <span style="color:#7354f3">Winder</span> Winder displays the version of the document when the tape was recorded, and plays the voice audio while highlighting objects as they were clicked during recording.</p>
-
-<p class="center sys-img"><img src="/assets/img/winder_highlight.png" alt="An image of a salad in the UI design is highlighted while a recording appears to be playing in Winder." /></p>
-
-<h3 id="inline-thumbnail-images-on-voice-transcripts">Inline Thumbnail Images on Voice Transcripts</h3>
-
-<p class="img-left"><img src="/assets/img/winder_transcript.png" alt="A transcript of a voice recording is shown with inline thumbnail images of UI design objects." /></p>
-
-<p class="text-right"><span style="color:#7354f3">Winder</span> provides automatic transcripts of the voice recordings (generated through speech-to-text). On the transcript, it embeds thumbnail images of the objects clicked during the recording inline with the words of the transcript.</p>
-
-<h3 id="object-based-search-of-voice-recordings">Object-based Search of Voice Recordings</h3>
-
-<p>If the user clicks on an object in the UI design, <span style="color:#7354f3">Winder</span> retrieves all tapes in which that object was selected. For each tape, the segment of the tape’s transcript during which the object had been clicked on is shown.</p>
-
-<p class="center sys-img"><img src="/assets/img/winder_search.png" alt="A gray rectangle is clicked in the UI design. In Winder, a list of tapes shows a short snippets from transcripts and thumbnails of the gray rectangle." /></p>
+<div class="figure-frame">
+  <img src="/assets/img/diaryplay-hero.png" alt="DiaryPlay teaser figure" />
+</div>
+<p class="figure-caption">DiaryPlay assists everyday storytellers in creating interactive vignettes.</p>
 
 <hr />
 
-<h2 id="results">Results</h2>
-
-<p>Tapes recorded by participants in a five-day user study were analyzed and categorized. The results showed that participants used <span style="color:#7354f3">Winder</span> for a variety of purposes—with most tapes used for “Describing” or “Justifying” design choices, or “Coordinating” work within a team.</p>
-
-<p class="center sys-img"><img src="/assets/img/results_type.png" alt="Table showing descriptions and example snippets of each tape category. Additionally, the table shows the perentage of tapes that fit into that category." /></p>
-
-<p>Participants mentioned how <span style="color:#7354f3">Winder</span> increased their shared understanding, motivated them to work, and made them feel as if they were co-present.</p>
-
-<p class="center quote">T2M1: <em>“The recordings left behind by my group members helped clarify some of the misunderstandings or confusions that I had.”</em></p>
-
-<p class="center quote">T1M2: <em>“Understanding [my team members] actions and intentions was fun somehow and made me work harder.”</em></p>
-
-<p class="center quote">T5M2: <em>“With the voice recordings and the feature that showed what the users clicked on as they talked, it was as if we were working together.”</em></p>
-
-<hr />
-
-<h2 id="chi-2021-paper-camera-ready">CHI 2021 Paper (Camera-ready)</h2>
-
-<p><a href="/papers/CHI2021___Winder___CameraReady.pdf">Link to the PDF</a></p>
-
-<h2 id="bibtex">Bibtex</h2>
-<pre>
-@inproceedings{10.1145/3313831.3376390,
-          author = {Yang, Saelyne and Lee, Changyoon and Shin, Hijung Valentina and Kim, Juho},
-          title = {Snapstream: Snapshot-Based Interaction in Live Streaming for Visual Art},
-          year = {2020},
-          isbn = {9781450367080},
-          publisher = {Association for Computing Machinery},
-          address = {New York, NY, USA},
-          url = {https://doi.org/10.1145/3313831.3376390},
-          doi = {10.1145/3313831.3376390},
-          booktitle = {Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems},
-          pages = {1–12},
-          numpages = {12},
-          keywords = {live streaming, online interaction, chat interaction, context sharing},
-          location = {Honolulu, HI, USA},
-          series = {CHI ’20}
-        }
-</pre>
+<div id="abstract"></div>
+<h2>Abstract</h2>
+<p>An interactive vignette is a visual storytelling medium that lets the audience role-play a character and interact with non-player characters (NPCs) and the digital environment. Yet, the authoring complexity of interactive vignettes has obstructed their adoption in everyday storytelling, which builds on immediacy. We introduce <span style="color:{{site.syscolor}}">DiaryPlay</span>, an AI-assisted authoring system that generates interactive vignettes from text stories. The Authoring Component visually elicits three core elements (environment, characters, events) through automation and author refinement. The Viewing Component delivers an interactive story to the audience using an LLM-powered Controlled Divergence Module, which allows divergent player and NPC behaviors within the boundaries defined by the author's intended story. A technical evaluation shows that the Controlled Divergence module generates believable NPC activities based on both character persona and storyline. A user study demonstrates that <span style="color:{{site.syscolor}}">DiaryPlay</span> enables low-effort authoring of interactive vignettes for everyday storytelling while providing engaging viewing experiences and conveying the core story message.</p>
+<div class="key-points">
+  <div class="info-card">
+    <h3>[DG1]</h3>
+    <p>Enable a lightweight authoring process that matches the effort of everyday storytelling practices.</p>
+  </div>
+  <div class="info-card">
+    <h3>[DG2]</h3>
+    <p>Capture and convey the author’s key message in the everyday story.</p>
+  </div>
+  <div class="info-card">
+    <h3>[DG3]</h3>
+    <p>Deliver an engaging viewing experience with situation-aware NPCs in a branching storyline.</p>
+  </div>
+</div>
 
 <hr />
 
-<p class="logos"><a href="https://kixlab.org"><img src="/assets/img/kixlab_logo.png" alt="Logo of KIXLAB" /></a>
-<a href="https://kaist.ac.kr"><img src="/assets/img/kaist_logo.png" alt="Logo of KAIST" /></a></p>
+<div id="system-overview"></div>
+<h2>DiaryPlay System Overview</h2>
+<p>The Interactive Vignette Authoring Component takes the author’s text story as input, extracts core elements (environment, characters, and events), and guides the author in refining them into structured interactive vignette elements. The Interactive Vignette Viewing Component enlivens NPCs and allows the player to control the PC, enabling an interactive narrative experience grounded in the authored storyline.</p>
+<div class="figure-frame">
+  <img src="/assets/img/diaryplay-overview.png" alt="DiaryPlay system overview" />
+</div>
+<p class="figure-caption">Figure 3: DiaryPlay system overview.</p>
 
-<p class="center acknowledgement">This research was supported by the <a href="https://kaist.ac.kr">KAIST</a> UP Program.</p>
+<hr />
 
+<div id="authoring-scenario"></div>
+<h2>Steps in the Authoring Scenario</h2>
+<div class="button-row compact">
+  <a class="button-link secondary" href="#authoring-step-1" target="_self"><span class="needs-check">Step 1</span></a>
+  <a class="button-link secondary" href="#authoring-step-2" target="_self"><span class="needs-check">Step 2</span></a>
+  <a class="button-link secondary" href="#authoring-step-3" target="_self"><span class="needs-check">Step 3</span></a>
+  <a class="button-link secondary" href="#authoring-step-4" target="_self"><span class="needs-check">Step 4</span></a>
+  <a class="button-link secondary" href="#authoring-step-5" target="_self"><span class="needs-check">Step 5</span></a>
+</div>
 
+<div class="figure-frame">
+  <img src="/assets/img/diaryplay-authoring-steps.png" alt="Steps in the Authoring Scenario" />
+</div>
+<p class="figure-caption">Figure 6: Steps in the Authoring Scenario.</p>
+
+<div class="steps-grid">
+  <div class="step-card" id="authoring-step-1">
+    <p class="step-index">Step 1</p>
+    <h3>Input a story</h3>
+    <p>Kelly begins by entering an everyday story into the story input box: My friend Julie helped me make a new Indonesian dish. We had dinner together. Then, Jack practiced his guitar and Julie sang a new song she had been practicing. Once the system processes the input, Kelly sees three panels, displaying each of the initial extraction results of three interactive vignette elements.</p>
+  </div>
+  <div class="step-card" id="authoring-step-2">
+    <p class="step-index">Step 2</p>
+    <h3>Label rooms</h3>
+    <p>Kelly decides to begin with the Environment panel, where she sees a home map layout with several empty pre-labeled rooms. She revises the “dining” to “living room” to better align with her intended setup, then clicks the “Confirm the rooms” button to continue.</p>
+  </div>
+  <div class="step-card" id="authoring-step-3">
+    <p class="step-index">Step 3</p>
+    <h3>Place objects</h3>
+    <p>Soon, she sees the rooms automatically populated by the system, including objects relevant to each room and objects required for the events in the story. To customize the environment, Kelly uses mouse drag-and-drop to reposition objects. Noticing that the living room feels crowded, she right-clicks to remove a carpet. She notices a chair is missing and then decides to add a dining chair in the kitchen, so she types “dining chair” in the input box above the map, and clicks the “Generate” button, then places the new chair in her desired location.</p>
+  </div>
+  <div class="step-card" id="authoring-step-4">
+    <p class="step-index">Step 4</p>
+    <h3>Complete the character profiles</h3>
+    <p>Kelly moves to the Character Panel. She notices three tabs, each representing a character from her input story: the Player Character, which will be controlled by the player, and two NPCs, her friends Julie and Jack. Each character tab includes an avatar selection and several blank fields for defining their personas. When filling in the persona fields, she struggles to articulate Jack’s personality, so she uses the “Try to talk with this NPC” feature to simulate a real-life conversation she had with him. Once satisfied with the conversation sample, she clicks the “Suggestions” button and receives a suggestion bubble beneath the personality field.</p>
+  </div>
+  <div class="step-card" id="authoring-step-5">
+    <p class="step-index">Step 5</p>
+    <h3>Refine the events with object assignment</h3>
+    <p>Kelly navigates to the Events panel, where she finds a visual timeline of key events, each containing character activities. She carefully reviews each event to verify that the system’s extracted activities align with her input story. Kelly noticed that an event generated from “we had dinner” included only Julie and her, but it should have included Jack too. To correct this, she clicks the add button and types “having dinner” to add it to Jack’s activities in the events panel. Next, to review and edit the target objects for each activity, she clicks on each activity and sees the system’s automatic assignments and opens the drop-down menu to select an object from the list.</p>
+  </div>
+</div>
+
+<hr />
+
+<div id="viewing-scenario"></div>
+<h2>Steps in the Viewing Scenario</h2>
+<div class="button-row compact">
+  <a class="button-link secondary" href="#viewing-step-1" target="_self"><span class="needs-check">Step 1</span></a>
+  <a class="button-link secondary" href="#viewing-step-2" target="_self"><span class="needs-check">Step 2</span></a>
+  <a class="button-link secondary" href="#viewing-step-3" target="_self"><span class="needs-check">Step 3</span></a>
+  <a class="button-link secondary" href="#viewing-step-4" target="_self"><span class="needs-check">Step 4</span></a>
+  <a class="button-link secondary" href="#viewing-step-5" target="_self"><span class="needs-check">Step 5</span></a>
+</div>
+
+<div class="figure-frame">
+  <img src="/assets/img/diaryplay-viewing-steps.png" alt="Steps in the Viewing Scenario" />
+</div>
+<p class="figure-caption">Figure 7: Steps in the Viewing Scenario.</p>
+
+<div class="steps-grid">
+  <div class="step-card" id="viewing-step-1">
+    <p class="step-index">Step 1</p>
+    <h3>Read the caption</h3>
+    <p>Bob starts by reading the text story as a caption to get an overview of the characters and events. He realizes that he will role-play as Kelly and interact with two other characters, Julie and Jack.</p>
+  </div>
+  <div class="step-card" id="viewing-step-2">
+    <p class="step-index">Step 2</p>
+    <h3>Engage with the first key event</h3>
+    <p>As the interactive vignette loads, Bob notices the kitchen stove top glowing, signaling that an activity is about to take place at the stove. To trigger the activity, he uses the arrow keys to move the PC toward it. Upon approaching, the activity starts. Bob sees the glow disappear, and a speech bubble appears under the PC’s avatar to show the PC’s activity: “cooking dinner.” Bob then observes Julie moving in the kitchen, and her speech bubble reads: “helping with cooking.”</p>
+  </div>
+  <div class="step-card" id="viewing-step-3">
+    <p class="step-index">Step 3</p>
+    <h3>Diverge from the key events</h3>
+    <p>After the cooking event is done, Bob sees the chair glowing, signaling the transition to the next key event, having dinner. However, instead of moving the PC to the glowing chair immediately, Bob decides to explore the home environment further. He moves the PC to the storage room and triggers the activity “cleaning the bookshelf” at the bookshelf. Bob realizes Jack and Julie are not abandoning the PC to have dinner without Kelly. Instead, Bob observes that Jack and Julie are doing other activities.</p>
+  </div>
+  <div class="step-card" id="viewing-step-4">
+    <p class="step-index">Step 4</p>
+    <h3>Return to the main storyline</h3>
+    <p>Following the inner voice and Jack’s response, Bob decides to move the PC to the glowing dining chair. After the PC arrives at the dining chair, Bob sees Jack and Julie join the PC for dinner.</p>
+  </div>
+  <div class="step-card" id="viewing-step-5">
+    <p class="step-index">Step 5</p>
+    <h3>Complete the interactive vignette experience</h3>
+    <p>After the “having dinner” event, Bob notices Jack and Julie moving to the music room to practice guitar and singing. With no more glowing objects in the environment, Bob realizes he is free to move the PC, interacting with the characters and objects in the environment. After Jack and Julie complete their guitar practice and singing, Bob sees the end screen, marking the conclusion of the experience.</p>
+  </div>
+</div>
+
+<hr />
+
+<div id="cd-module"></div>
+<h2>Controlled Divergence Module</h2>
+<p>During the interactive vignette play time, the Controlled Divergence (CD) Module automatically transforms the single-branch sequence of events in the specification into a branch-and-bottleneck narrative structure reacting to the player interactions. The purpose of the CD Module is to allow both the PC and the NPCs to freely take divergent activities, while being subtly guided to stay within the controlled boundaries defined by the storyline from the author. From the interactive vignette author’s perspective, the CD Module offloads the manual effort of crafting a multi-branch narrative; from the player’s perspective, the CD Module provides player agency within the viewing experience.</p>
+<div class="figure-frame">
+  <img src="/assets/img/diaryplay-cd-module.png" alt="The CD Module plans NPC activities and reacts to PC activities in a two-stage loop" />
+</div>
+<p class="figure-caption">Figure 8: The CD Module plans NPC activities and reacts to PC activities in a two-stage loop.</p>
+
+<hr />
+
+<h2>Example interactive vignettes created by participants from the user study</h2>
+<p>As illustrated in Figure 9, participants used DiaryPlay to express a wide variety of stories, spanning across various locations (e.g., office, library, museum, home, theater, shopping mall), characters (e.g., family members, friends, colleagues, strangers, classmates), and types of events (e.g., work day, school morning routine, museum visit). This demonstrates the DiaryPlay’s capability to support diverse expressions of everyday stories.</p>
+<div class="figure-frame">
+  <img src="/assets/img/diaryplay-examples.png" alt="Example interactive vignettes created by participants from the user study" />
+</div>
+<p class="figure-caption">Figure 9: Example interactive vignettes created by participants from the user study. Minor grammatical errors in the original stories have been revised for illustration.</p>
+
+<hr />
+
+<div id="paper-links"></div>
+<h2><span class="needs-check">Paper and Citation</span></h2>
+<p><a href="/papers/CHI2026-DiaryPlay-CameraReady.pdf"><span class="needs-check">Paper PDF</span></a></p>
+<p><a href="https://doi.org/10.1145/3772318.3790572"><span class="needs-check">ACM Digital Library</span></a></p>
+
+<h3>BibTeX</h3>
+<pre><code class="language-bibtex">@inproceedings{10.1145/3772318.3790572,
+  author = {Xu, Jiangnan and Cha, Haeseul and Choi, Gosu and Lee, Gyu-cheol and Yoon, Yeo-Jin and Lee, Zucheul and Papangelis, Konstantinos and Kim, Dae Hyun and Kim, Juho},
+  title = {DiaryPlay: AI-Assisted Creation of Interactive Story Vignettes for Everyday Storytelling},
+  year = {2026},
+  isbn = {979-8-4007-2278-3},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3772318.3790572},
+  doi = {10.1145/3772318.3790572},
+  booktitle = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+  numpages = {21},
+  location = {Barcelona, Spain},
+  series = {CHI '26}
+}
+</code></pre>
+<hr />
+
+<p class="logos">
+  <a href="https://kixlab.org"><img src="/assets/img/kixlab_logo.png" alt="Logo of KIXLAB" /></a>
+  <a href="https://kaist.ac.kr"><img src="/assets/img/kaist_logo.png" alt="Logo of KAIST" /></a>
+</p>
     </div>
-    
   </body>
 </html>

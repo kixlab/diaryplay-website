@@ -26,19 +26,32 @@
           {% if site.syslogo %}
             <img src="{{site.syslogo}}" width="40px" style="vertical-align:middle"/>
           {% endif %}
-          <span style="vertical-align:middle; color: {{site.syscolor}};"/>{{site.title}}</span>
+          <span style="vertical-align:middle; color: {{site.syscolor}};">{{site.title}}</span>
         </h1>
         <h4>{{site.description}}</h4>
         <div class="authors-wrapper">
         {% for author in site.data.authors %}
           <div class="author-container">
             <div class="author-image">
-              {% if author.website %}
-                <a href="{{author.website}}">
-                  <img src="/assets/img/{{author.img}}"/>
-                </a>
+              {% if author.img %}
+                {% if author.website %}
+                  <a href="{{author.website}}">
+                    <img src="/assets/img/{{author.img}}" alt="{{author.name}}"/>
+                  </a>
+                {% else %}
+                  <img src="/assets/img/{{author.img}}" alt="{{author.name}}"/>
+                {% endif %}
               {% else %}
-                <img src="/assets/img/{{author.img}}"/>
+                {% assign name_parts = author.name | split: ' ' %}
+                {% assign first_name = name_parts | first %}
+                {% assign last_name = name_parts | last %}
+                {% assign first_initial = first_name | slice: 0 %}
+                {% assign last_initial = last_name | slice: 0 %}
+                {% if author.website %}
+                  <a class="author-fallback" href="{{author.website}}">{{ first_initial }}{{ last_initial }}</a>
+                {% else %}
+                  <span class="author-fallback">{{ first_initial }}{{ last_initial }}</span>
+                {% endif %}
               {% endif %}
             </div>
             <p>

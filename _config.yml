@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Winder
+title: DiaryPlay
 theme: minima
-description: "Linking Speech and Visual Objects to Support Communication in Asynchronous Collaboration"
+description: "AI-Assisted Creation of Interactive Story Vignettes for Everyday Storytelling"
 
-syslogo: /assets/img/winder_logo.svg
-syscolor: "#7354f3"
+syslogo: false
+syscolor: "#ef6b5b"
 sysfont: Lato
-video: https://www.youtube.com/embed/_Y0d_uyA6XA
+video: false
 
 plugins:
   - jekyll-feed

@@ -1,15 +1,21 @@
-- name: Tae Soo Kim
+- name: Jiangnan Xu
+  affiliation: Tampere University / RIT
+  website: https://www.jiangnanxu.net/
+- name: Haeseul Cha
   affiliation: KAIST
-  website: https://taesookim.com
-  img: taesoo.jpeg
-- name: Seungsu Kim
+- name: Gosu Choi
   affiliation: KAIST
-  img: seungsu.jpeg
-- name: Yoonseo Choi
-  affiliation: KAIST
-  website: https://yoonseochoi.com
-  img: yoonseo.png
+- name: Gyu-cheol Lee
+  affiliation: KT
+- name: Yeo-Jin Yoon
+  affiliation: KT
+- name: Zucheul Lee
+  affiliation: KT
+- name: Konstantinos Papangelis
+  affiliation: Rochester Institute of Technology
+- name: Dae Hyun Kim
+  affiliation: Yonsei University / POSTECH
+  website: https://dhkim16.github.io/
 - name: Juho Kim
-  affiliation: KAIST
+  affiliation: KAIST / SkillBench
   website: https://juhokim.com
-  img: juho.jpg
