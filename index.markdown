@@ -6,7 +6,6 @@ layout: default
 
 <div class="button-row">
   <a class="button-link" href="/papers/CHI2026-DiaryPlay-CameraReady.pdf"><span class="needs-check">Paper PDF</span></a>
-  <a class="button-link" href="https://doi.org/10.1145/3772318.3790572"><span class="needs-check">ACM DL</span></a>
   <a class="button-link secondary" href="#system-overview" target="_self"><span class="needs-check">System Overview</span></a>
   <a class="button-link secondary" href="#authoring-scenario" target="_self"><span class="needs-check">Authoring Steps</span></a>
   <a class="button-link secondary" href="#viewing-scenario" target="_self"><span class="needs-check">Viewing Steps</span></a>
@@ -315,7 +314,7 @@ The authoring experience met participants' expectations for lightweight effort; 
   <a href="https://www.tuni.fi/en"><img src="/assets/img/tampere_logo.png" alt="Logo of Tampere University" /></a>
   <a href="https://www.rit.edu"><img src="/assets/img/rit_logo.png" alt="Logo of RIT" /></a>
   <a href="https://www.yonsei.ac.kr/en_sc"><img src="/assets/img/yonsei_logo.png" alt="Logo of Yonsei University" /></a>
-  <img src="/assets/img/kt_logo.png" alt="Logo of KT" />
+  <img src="/assets/img/kt_logo.png" alt="Logo of Korea Telecom" />
   <img src="/assets/img/skillbench_logo.png" alt="Logo of SkillBench" />
 </p>
 
