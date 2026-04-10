@@ -339,14 +339,30 @@ pre {
 
 .step-media {
   margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
 }
 
 .step-media img {
   display: block;
-  width: 100%;
-  border: 1px solid var(--border-color);
-  border-radius: 18px;
-  background: #fff;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.step-switcher[data-step-group="authoring"] .step-media {
+  height: 380px;
+}
+
+.step-switcher[data-step-group="viewing"] .step-media {
+  height: 380px;
 }
 
 .step-copy-grid {
@@ -473,6 +489,12 @@ pre {
 
   .step-panel-card {
     padding: 18px;
+  }
+
+  .step-switcher[data-step-group="authoring"] .step-media,
+  .step-switcher[data-step-group="viewing"] .step-media {
+    height: auto;
+    min-height: 240px;
   }
 
   .step-copy-grid {
