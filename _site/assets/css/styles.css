@@ -322,6 +322,6 @@ pre { display: block; font-size: 14px; color: #333; word-break: break-all; word-
 
 .sys-img { width: 90%; }
 
-@media (max-width: 600px) { h1 { font-size: 36px; } h4 { font-size: 20px; } h2 { font-size: 20px; } h3 { font-size: 16px; } p { font-size: 14px; } .author-container p { font-size: 12px; } .author-container p + p { font-size: 11px; } pre { font-size: 10px; } .wrapper { max-width: calc(100vw - 30px); } .author-container { display: flex; width: calc(50% - 10px); margin: 0; } .img-left { display: block; text-align: center; width: 70%; margin-left: 15%; } .text-right { width: 100%; margin-left: 0px; } .sys-img { width: 100%; } }
+@media (max-width: 600px) { h1 { font-size: 36px; } h4 { font-size: 20px; } h2 { font-size: 20px; } h3 { font-size: 16px; } p { font-size: 14px; } .author-container p { font-size: 12px; } .author-container p + p { font-size: 11px; } pre { font-size: 10px; } .wrapper { max-width: calc(100vw - 30px); } .author-container { display: flex; width: calc(50% - 10px); margin: 0; } .img-left { display: block; text-align: center; width: 70%; margin-left: 15%; } .text-right { width: 100%; margin-left: 0px; } .sys-img { width: 100%; } .logos img { height: 21px; } }
 
 /*# sourceMappingURL=styles.css.map */
