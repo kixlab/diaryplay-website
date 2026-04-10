@@ -32,8 +32,8 @@
         <div class="authors-wrapper">
         {% for author in site.data.authors %}
           <div class="author-container">
-            <div class="author-image">
-              {% if author.img %}
+            {% if author.img %}
+              <div class="author-image">
                 {% if author.website %}
                   <a href="{{author.website}}">
                     <img src="/assets/img/{{author.img}}" alt="{{author.name}}"/>
@@ -41,19 +41,8 @@
                 {% else %}
                   <img src="/assets/img/{{author.img}}" alt="{{author.name}}"/>
                 {% endif %}
-              {% else %}
-                {% assign name_parts = author.name | split: ' ' %}
-                {% assign first_name = name_parts | first %}
-                {% assign last_name = name_parts | last %}
-                {% assign first_initial = first_name | slice: 0 %}
-                {% assign last_initial = last_name | slice: 0 %}
-                {% if author.website %}
-                  <a class="author-fallback" href="{{author.website}}">{{ first_initial }}{{ last_initial }}</a>
-                {% else %}
-                  <span class="author-fallback">{{ first_initial }}{{ last_initial }}</span>
-                {% endif %}
-              {% endif %}
-            </div>
+              </div>
+            {% endif %}
             <p>
             {% if author.website %}
               <a href="{{author.website}}">

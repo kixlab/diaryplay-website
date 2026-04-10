@@ -312,6 +312,11 @@ The authoring experience met participants' expectations for lightweight effort; 
 <p class="logos">
   <a href="https://kixlab.org"><img src="/assets/img/kixlab_logo.png" alt="Logo of KIXLAB" /></a>
   <a href="https://kaist.ac.kr"><img src="/assets/img/kaist_logo.png" alt="Logo of KAIST" /></a>
+  <a href="https://www.tuni.fi/en"><img src="/assets/img/tampere_logo.png" alt="Logo of Tampere University" /></a>
+  <a href="https://www.rit.edu"><img src="/assets/img/rit_logo.png" alt="Logo of RIT" /></a>
+  <a href="https://www.yonsei.ac.kr/en_sc"><img src="/assets/img/yonsei_logo.png" alt="Logo of Yonsei University" /></a>
+  <img src="/assets/img/kt_logo.png" alt="Logo of KT" />
+  <img src="/assets/img/skillbench_logo.png" alt="Logo of SkillBench" />
 </p>
 
 <script>
