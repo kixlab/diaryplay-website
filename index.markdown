@@ -144,8 +144,6 @@ The Interactive Vignette Authoring Component takes the author's text story as in
   </div>
 </div>
 
-<p class="section-note">The authoring experience met participants' expectations for lightweight effort; they were able to complete interactive vignette creation within 20 minutes, and DiaryPlay provided effective assistance in building interactive vignette elements.</p>
-
 <hr />
 
 <div id="viewing-scenario"></div>
@@ -238,8 +236,6 @@ The Interactive Vignette Authoring Component takes the author's text story as in
   </div>
 </div>
 
-<p class="section-note">Participants valued the moments when players diverged from the main storyline, bringing in tiny yet meaningful pieces that enriched but did not derail their everyday story. Meanwhile, participants described the viewing experience as engaging and immersive, and they were able to understand the author's main story content despite divergent interactions.</p>
-
 <hr />
 
 <div id="cd-module"></div>
@@ -279,9 +275,11 @@ The Interactive Vignette Authoring Component takes the author's text story as in
 
 <hr />
 
-## Example interactive vignettes created by participants from the user study
+## Results from the User Study
 
 As illustrated in Figure 9, participants used DiaryPlay to express a wide variety of stories, spanning across various locations (e.g., office, library, museum, home, theater, shopping mall), characters (e.g., family members, friends, colleagues, strangers, classmates), and types of events (e.g., work day, school morning routine, museum visit). This demonstrates DiaryPlay's capability to support diverse expressions of everyday stories.
+
+The authoring experience met participants' expectations for lightweight effort; they were able to complete interactive vignette creation within 20 minutes, and DiaryPlay provided effective assistance in building interactive vignette elements. Participants also valued the moments when players diverged from the main storyline, bringing in tiny yet meaningful pieces that enriched but did not derail their everyday story. Meanwhile, participants described the viewing experience as engaging and immersive, and they were able to understand the author's main story content despite divergent interactions.
 
 <div class="figure-frame">
   <img src="/assets/img/diaryplay-examples.png" alt="Example interactive vignettes created by participants from the user study" />
