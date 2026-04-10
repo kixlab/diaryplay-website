@@ -57,6 +57,11 @@ The Interactive Vignette Authoring Component takes the author's text story as in
 <div id="authoring-scenario"></div>
 ## Steps in the Authoring Scenario
 
+<div class="section-copy-grid">
+  <p>To support lightweight authoring (DG1) and ensure the capture of the author's core story message (DG2), the Interactive Vignette Authoring Component guides everyday storytellers in completing and refining interactive vignette elements by surfacing gaps between the natural-language story input and the information required for an interactive vignette.</p>
+  <p>To enable lightweight authoring (DG1) while still capturing the main story message (DG2), we designed a minimal but sufficient specification for everyday storytelling regarding each of the three core elements: environment, characters, and events.</p>
+</div>
+
 <p class="section-note center"><span class="needs-check">Select a step to reveal its corresponding description and figure.</span></p>
 
 <div class="step-switcher" data-step-group="authoring">
@@ -77,7 +82,7 @@ The Interactive Vignette Authoring Component takes the author's text story as in
       </div>
       <div class="step-copy-grid">
         <p>Kelly begins by entering an everyday story into the story input box: "My friend Julie helped me make a new Indonesian dish. We had dinner together. Then, Jack practiced his guitar while Julie sang a new song she had been practicing."</p>
-        <p>Once the system processes the input, Kelly sees three panels displaying each of the initial extraction results of the three interactive vignette elements: environment, characters, and events.</p>
+        <p>The Interactive Vignette Elements Extractor takes the author's input story and initially extracts three elements - environment, characters, and events - and presents them in the corresponding panels on the Authoring Interface, where the author can review, complete, and modify them with system guidance.</p>
       </div>
     </div>
   </div>
@@ -90,8 +95,8 @@ The Interactive Vignette Authoring Component takes the author's text story as in
         <img src="/assets/img/Astep2.png" alt="Authoring scenario step 2" />
       </div>
       <div class="step-copy-grid">
-        <p>Kelly decides to begin with the Environment panel, where she sees a home map layout with several empty pre-labeled rooms.</p>
-        <p>She revises the "dining" label to "living room" to better align with her intended setup, then clicks the "Confirm the rooms" button to continue.</p>
+        <p>To first define the environment layout, the extractor uses the LLM to pair the input story with one of the layouts and then labels each room based on its functionality to support the story input, asking the author for review and revision.</p>
+        <p>Kelly begins with the Environment panel, revises the "dining" label to "living room" to better align with her intended setup, and then clicks the "Confirm the rooms" button to continue.</p>
       </div>
     </div>
   </div>
@@ -104,8 +109,8 @@ The Interactive Vignette Authoring Component takes the author's text story as in
         <img src="/assets/img/Astep3.png" alt="Authoring scenario step 3" />
       </div>
       <div class="step-copy-grid">
-        <p>Soon, she sees the rooms automatically populated by the system, including objects relevant to each room and objects required for the events in the story. To customize the environment, Kelly uses mouse drag-and-drop to reposition objects.</p>
-        <p>Noticing that the living room feels crowded, she right-clicks to remove a carpet. She notices a chair is missing and then decides to add a dining chair in the kitchen, so she types "dining chair" in the input box above the map, clicks the "Generate" button, and places the new chair in her desired location.</p>
+        <p>Once the author confirms the layout and room labels, the extractor automatically calculates and populates each room with necessary objects - either event-related or environment-related - and adds decorative objects when there is room, while using semantic reasoning and path-finding to keep the space navigable.</p>
+        <p>Kelly customizes the result by dragging objects, removing a carpet, and adding a missing dining chair in the kitchen. Once the population of the rooms is complete, the author can add, remove, or relocate objects.</p>
       </div>
     </div>
   </div>
@@ -118,8 +123,8 @@ The Interactive Vignette Authoring Component takes the author's text story as in
         <img src="/assets/img/Astep4.png" alt="Authoring scenario step 4" />
       </div>
       <div class="step-copy-grid">
-        <p>Kelly moves to the Character Panel. She notices three tabs, each representing a character from her input story: the Player Character, which will be controlled by the player, and two NPCs, her friends Julie and Jack.</p>
-        <p>Each character tab includes an avatar selection and blank fields for defining persona. When filling in the persona fields, she struggles to articulate Jack's personality, so she uses the "Try to talk with this NPC" feature to simulate a real-life conversation she had with him. Once satisfied with the conversation sample, she clicks the "Suggestions" button and receives a suggestion bubble beneath the personality field.</p>
+        <p>Based on the story, the extractor identifies the main character as the PC and classifies all other characters as NPCs. For each character, the system extracts explicitly stated persona attributes such as names and social roles, while leaving unspecified traits blank for the author to complete so that the system does not over-guide the author.</p>
+        <p>When Kelly struggles to articulate Jack's personality, she uses the conversation-simulation feature. The system generates NPC replies based on the character's current persona traits, conversation examples, and the story context, then recommends persona traits by comparing the dialogue against the current persona traits and proposing revisions and new traits implied by the dialogue.</p>
       </div>
     </div>
   </div>
@@ -132,17 +137,24 @@ The Interactive Vignette Authoring Component takes the author's text story as in
         <img src="/assets/img/Astep5.png" alt="Authoring scenario step 5" />
       </div>
       <div class="step-copy-grid">
-        <p>Kelly navigates to the Events panel, where she finds a visual timeline of key events, each containing character activities. She carefully reviews each event to verify that the system's extracted activities align with her input story.</p>
-        <p>Kelly notices that an event generated from "We had dinner" included only Julie and her, but it should have included Jack too. To correct this, she clicks the add button and types "Having dinner" to add it to Jack's activities in the events panel. Next, to review and edit the target objects for each activity, she clicks on each activity, sees the system's automatic assignments, and opens the drop-down menu to select an object from the list.</p>
+        <p>For events, the extractor first prompts the LLM to list the actions performed by each character and match them to the most appropriate objects, thereby creating the (character, action, object) tuple. It then groups simultaneous activities into a single key event and organizes the key events into a time-ordered sequence.</p>
+        <p>Kelly reviews the visual timeline and notices that the event generated from "We had dinner" included only Julie and her, even though it should have included Jack too. She corrects the missing activity, then reviews the target objects for each activity through the system's automatic assignments and drop-down object list.</p>
       </div>
     </div>
   </div>
 </div>
 
+<p class="section-note">The authoring experience met participants' expectations for lightweight effort; they were able to complete interactive vignette creation within 20 minutes, and DiaryPlay provided effective assistance in building interactive vignette elements.</p>
+
 <hr />
 
 <div id="viewing-scenario"></div>
 ## Steps in the Viewing Scenario
+
+<div class="section-copy-grid">
+  <p>To enable adaptive player interactions (DG3) without requiring authors to manually construct branching paths (DG1), the Interactive Vignette Viewing Component automatically delivers branching interactive narratives based on the authored elements.</p>
+  <p>We adopt a branch-and-bottleneck narrative structure so that divergent player interactions converge back into the author's predefined key events, thereby preserving the author's intended story message (DG2).</p>
+</div>
 
 <p class="section-note center"><span class="needs-check">Select a step to reveal its corresponding description and figure.</span></p>
 
@@ -164,7 +176,7 @@ The Interactive Vignette Authoring Component takes the author's text story as in
       </div>
       <div class="step-copy-grid">
         <p>Bob starts by reading the text story as a caption to get an overview of the characters and events.</p>
-        <p>He realizes that he will role-play as Kelly and interact with two other characters, Julie and Jack.</p>
+        <p>He realizes that he will role-play as Kelly (the PC) and interact with two other characters, Julie and Jack (NPCs).</p>
       </div>
     </div>
   </div>
@@ -178,7 +190,7 @@ The Interactive Vignette Authoring Component takes the author's text story as in
       </div>
       <div class="step-copy-grid">
         <p>As the interactive vignette loads, Bob notices the kitchen stove top glowing, signaling that an activity is about to take place at the stove. To trigger the activity, he uses the arrow keys to move the PC toward it. Upon approaching, the activity starts.</p>
-        <p>Bob sees the glow disappear, and a speech bubble appears under the PC's avatar to show the PC's activity: "Cooking dinner." Bob then observes Julie moving in the kitchen, and her speech bubble reads: "Helping with cooking."</p>
+        <p>Bob sees the glow disappear, and a speech bubble appears under the PC's avatar to show the PC's activity: "Cooking dinner." Bob then observes Julie moving in the kitchen, and her speech bubble reads: "Helping with cooking." Although the text story does not specify Jack's activity during the cooking, Bob notices that Jack is sitting on the sofa and watching TV rather than remaining idle, giving Bob a sense of character liveliness.</p>
       </div>
     </div>
   </div>
@@ -192,7 +204,7 @@ The Interactive Vignette Authoring Component takes the author's text story as in
       </div>
       <div class="step-copy-grid">
         <p>After the cooking event is done, Bob sees the chair glowing, signaling the transition to the next key event, having dinner. However, instead of moving the PC to the glowing chair immediately, Bob decides to explore the home environment further.</p>
-        <p>He moves the PC to the storage room and triggers the activity "Cleaning the bookshelf" at the bookshelf. Bob realizes Jack and Julie are not abandoning the PC to have dinner without Kelly. Instead, Bob observes that Jack and Julie are doing other activities.</p>
+        <p>He moves the PC to the storage room and triggers the activity "Cleaning the bookshelf" at the bookshelf. Bob realizes Jack and Julie are not abandoning the PC to have dinner without Kelly. Instead, Bob observes that Jack is "Organizing the wardrobe," Julie is "Practicing music," a subtle inner voice says "Time to enjoy a meal!", and Jack responds to "I want to skip dinner" by guiding the PC toward the next key event.</p>
       </div>
     </div>
   </div>
@@ -226,12 +238,39 @@ The Interactive Vignette Authoring Component takes the author's text story as in
   </div>
 </div>
 
+<p class="section-note">Participants valued the moments when players diverged from the main storyline, bringing in tiny yet meaningful pieces that enriched but did not derail their everyday story. Meanwhile, participants described the viewing experience as engaging and immersive, and they were able to understand the author's main story content despite divergent interactions.</p>
+
 <hr />
 
 <div id="cd-module"></div>
 ## Controlled Divergence Module
 
-During the interactive vignette play time, the Controlled Divergence (CD) Module automatically transforms the single-branch sequence of events in the specification into a branch-and-bottleneck narrative structure reacting to the player interactions. The purpose of the CD Module is to allow both the PC and the NPCs to freely take divergent activities, while being subtly guided to stay within the controlled boundaries defined by the storyline from the author. From the interactive vignette author's perspective, the CD Module offloads the manual effort of crafting a multi-branch narrative; from the player's perspective, the CD Module provides player agency within the viewing experience.
+<div class="section-copy-grid">
+  <p>During the interactive vignette play time, the Controlled Divergence (CD) Module automatically transforms the single-branch sequence of events in the specification into a branch-and-bottleneck narrative structure reacting to player interactions. Its purpose is to allow both the PC and the NPCs to freely take divergent activities while being subtly guided to stay within the controlled boundaries defined by the storyline from the author.</p>
+  <p>From the interactive vignette author's perspective, the CD Module offloads the manual effort of crafting a multi-branch narrative. From the player's perspective, it provides player agency within the viewing experience.</p>
+</div>
+
+<div class="key-points">
+  <div class="info-card">
+    <h3>Real-time responses</h3>
+    <p>The CD Module must provide real-time responses to ensure an immersive and coherent narrative experience.</p>
+  </div>
+  <div class="info-card">
+    <h3>Subtle PC guidance</h3>
+    <p>The CD Module should provide subtle PC guidance toward the key events when they diverge, to preserve the author-intended storyline.</p>
+  </div>
+  <div class="info-card">
+    <h3>Believable NPC behavior</h3>
+    <p>The CD Module should ensure believable NPCs that behave consistently with their personas and the overarching story logic.</p>
+  </div>
+</div>
+
+<div class="section-copy-grid">
+  <p><strong>Stage 1: Plan NPC activities.</strong> To ensure real-time responsiveness despite the computational delay from activity generation, the CD Module plans NPC activities in advance. For each NPC, it generates two next-activity plans based on the NPC's persona and the storyline: one for when the PC follows the next key event and another for when the PC engages in a divergent activity.</p>
+  <p><strong>Stage 2: React to PC activities.</strong> The module continuously monitors PC activities and selects the planned NPC activity depending on whether the PC took the activity defined in the next key event. Once the NPC begins the planned action, the module returns to Stage 1 to plan the next activity.</p>
+</div>
+
+<p>The CD Module also detects the PC's deviation from key events and guides the player back to the flow of the story through two mechanisms: inner voice and chat-based guidance from the NPCs. Instead of forcing players back to the key event, the system uses inner-voice cues and dialogue to nudge players, while allowing divergent activities to continue as long as needed without a fixed limit.</p>
 
 <div class="figure-frame">
   <img src="/assets/img/diaryplay-cd-module.png" alt="The CD Module plans NPC activities and reacts to PC activities in a two-stage loop" />
