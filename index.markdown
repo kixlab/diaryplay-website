@@ -313,9 +313,9 @@ The authoring experience met participants' expectations for lightweight effort; 
   <a href="https://kaist.ac.kr"><img src="/assets/img/kaist_logo.png" alt="Logo of KAIST" /></a>
   <a href="https://www.tuni.fi/en"><img src="/assets/img/tampere_logo.png" alt="Logo of Tampere University" /></a>
   <a href="https://www.rit.edu"><img src="/assets/img/rit_logo.png" alt="Logo of RIT" /></a>
-  <a href="https://www.yonsei.ac.kr/en_sc"><img src="/assets/img/yonsei_logo.png" alt="Logo of Yonsei University" /></a>
-  <img src="/assets/img/kt_logo.png" alt="Logo of Korea Telecom" />
-  <img src="/assets/img/skillbench_logo.png" alt="Logo of SkillBench" />
+  <a href="https://www.yonsei.ac.kr/"><img src="/assets/img/yonsei_logo.png" alt="Logo of Yonsei University" /></a>
+  <a href="https://www.kt.com/"><img src="/assets/img/kt_logo.png" alt="Logo of Korea Telecom" /></a>
+  <a href="https://skillbench.com/"><img src="/assets/img/skillbench_logo.png" alt="Logo of SkillBench" /></a>
 </p>
 
 <script>
